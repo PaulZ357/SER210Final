@@ -21,7 +21,7 @@
         android:id="@+id/editScrollLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Scroll"
+        android:text="@string/edit_scroll"
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
         android:layout_marginStart="12dp"
         android:ems="10"
         android:inputType="text"
-        android:text="HP"
+        android:text="@string/hp"
         app:layout_constraintStart_toEndOf="@+id/HPGrowthText"
         tools:layout_editor_absoluteY="139dp" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
-        android:text="HP Growth Rate "
+        android:text="@string/hp_growth_rate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -54,7 +54,7 @@
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="text"
-        android:text="MG"
+        android:text="@string/magic"
         app:layout_constraintTop_toBottomOf="@+id/hpGrowthRate"
         tools:layout_editor_absoluteX="108dp" />
 
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Base HP "
+        android:text="@string/base_hp"
         app:layout_constraintEnd_toStartOf="@+id/magicGrowthRate"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Scroll <NAME>"
+        android:text="@string/scroll_name"
         app:layout_constraintTop_toBottomOf="@+id/editScrollLabel"
         tools:layout_editor_absoluteX="13dp" />
 
