@@ -2,4 +2,6 @@
     <string name="app_name">Milestone 2</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">This program will let you calculate the stats of all characters when using crusader scrolls, helping you track your progress throughout the game</string>
+    <string name="ok">OK</string>
+    <string name="delete">Delete</string>
 </resources>
