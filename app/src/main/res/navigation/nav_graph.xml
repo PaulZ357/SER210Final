@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startdestination="@+id/welcome_fragment"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_compareFragment"
+            app:destination="@id/compareFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_addCharacterFragment"
+            app:destination="@id/addCharacterFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_addScrollFragment"
+            app:destination="@id/addScrollFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_calculateAveragesFragment"
+            app:destination="@id/calculateAveragesFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_editCharacterFragment"
+            app:destination="@id/editCharacterFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_editScrollFragment"
+            app:destination="@id/editScrollFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCharacterFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.AddCharacterFragment"
+        android:label="fragment_add_character"
+        tools:layout="@layout/fragment_add_character" />
+    <fragment
+        android:id="@+id/addScrollFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.AddScrollFragment"
+        android:label="fragment_add_scroll"
+        tools:layout="@layout/fragment_add_scroll" />
+    <fragment
+        android:id="@+id/calculateAveragesFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.CalculateAveragesFragment"
+        android:label="fragment_calculate_averages"
+        tools:layout="@layout/fragment_calculate_averages" />
+    <fragment
+        android:id="@+id/compareFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.CompareFragment"
+        android:label="fragment_compare"
+        tools:layout="@layout/fragment_compare" />
+    <fragment
+        android:id="@+id/editCharacterFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.EditCharacterFragment"
+        android:label="fragment_edit_character"
+        tools:layout="@layout/fragment_edit_character" />
+    <fragment
+        android:id="@+id/editScrollFragment"
+        android:name="edu.quinnipiac.ser210.milestone2.EditScrollFragment"
+        android:label="fragment_edit_scroll"
+        tools:layout="@layout/fragment_edit_scroll" />
+</navigation>
