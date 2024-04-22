@@ -9,7 +9,7 @@ class DataApplication : Application() {
 	val characterDatabase: CharacterRoomDatabase by lazy { CharacterRoomDatabase.getDatabase(this) }
 	val defaultCharacters = arrayOf(
 		Character(
-			0,
+			1,
 			"Leif",
 			1,
 			22,
@@ -40,7 +40,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			1,
+			2,
 			"Finn",
 			7,
 			28,
@@ -71,7 +71,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			2,
+			3,
 			"Osian",
 			1,
 			27,
@@ -102,7 +102,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			3,
+			4,
 			"Halvan",
 			2,
 			28,
@@ -133,7 +133,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			4,
+			5,
 			"Eyvel",
 			12,
 			28,
@@ -157,7 +157,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			5,
+			6,
 			"Dagdar",
 			6,
 			43,
@@ -181,7 +181,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			6,
+			7,
 			"Tanya",
 			1,
 			20,
@@ -212,7 +212,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			7,
+			8,
 			"Marty",
 			1,
 			32,
@@ -243,7 +243,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			8,
+			9,
 			"Ronan",
 			1,
 			20,
@@ -274,7 +274,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			9,
+			10,
 			"Safy",
 			3,
 			14,
@@ -305,7 +305,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			10,
+			11,
 			"Lifis",
 			4,
 			20,
@@ -336,7 +336,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			11,
+			12,
 			"Macha",
 			2,
 			24,
@@ -367,7 +367,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			12,
+			13,
 			"Brighton",
 			5,
 			28,
@@ -398,7 +398,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			13,
+			14,
 			"Lara",
 			2,
 			14,
@@ -429,7 +429,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			14,
+			15,
 			"Fergus",
 			3,
 			26,
@@ -460,7 +460,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			15,
+			16,
 			"Karin",
 			1,
 			18,
@@ -491,7 +491,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			16,
+			17,
 			"Dalsin",
 			5,
 			29,
@@ -522,7 +522,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			17,
+			18,
 			"Asbel",
 			1,
 			22,
@@ -553,7 +553,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			18,
+			19,
 			"Nanna",
 			1,
 			18,
@@ -584,7 +584,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			19,
+			20,
 			"Hicks",
 			6,
 			30,
@@ -615,7 +615,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			20,
+			21,
 			"Shiva",
 			4,
 			24,
@@ -646,7 +646,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			21,
+			22,
 			"Callion",
 			1,
 			24,
@@ -677,7 +677,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			22,
+			23,
 			"Selphina",
 			8,
 			22,
@@ -708,7 +708,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			23,
+			24,
 			"Kain",
 			2,
 			26,
@@ -739,7 +739,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			24,
+			25,
 			"Alba",
 			2,
 			24,
@@ -770,7 +770,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			25,
+			26,
 			"Robert",
 			1,
 			23,
@@ -801,7 +801,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			26,
+			27,
 			"Fred",
 			2,
 			33,
@@ -825,7 +825,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			27,
+			28,
 			"Olwen",
 			2,
 			24,
@@ -849,7 +849,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			28,
+			29,
 			"Mareeta",
 			2,
 			22,
@@ -880,7 +880,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			29,
+			30,
 			"Salem",
 			5,
 			22,
@@ -911,7 +911,7 @@ class DataApplication : Application() {
 			0
 		),
 		Character(
-			30,
+			31,
 			"Perne",
 			3,
 			24,
@@ -935,7 +935,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			31,
+			32,
 			"Tina",
 			1,
 			14,
@@ -966,7 +966,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			32,
+			33,
 			"Troude",
 			8,
 			30,
@@ -997,7 +997,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			33,
+			34,
 			"Glade",
 			2,
 			34,
@@ -1021,7 +1021,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			34,
+			35,
 			"Deen",
 			3,
 			36,
@@ -1045,7 +1045,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			35,
+			36,
 			"Eda",
 			5,
 			22,
@@ -1076,7 +1076,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			36,
+			37,
 			"Homer",
 			5,
 			24,
@@ -1107,7 +1107,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			37,
+			38,
 			"Linoan",
 			3,
 			16,
@@ -1138,7 +1138,7 @@ class DataApplication : Application() {
 			2
 		),
 		Character(
-			38,
+			39,
 			"Ralph",
 			3,
 			38,
@@ -1162,7 +1162,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			39,
+			40,
 			"Ilios",
 			8,
 			40,
@@ -1186,7 +1186,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			40,
+			41,
 			"Schroff",
 			6,
 			18,
@@ -1217,7 +1217,7 @@ class DataApplication : Application() {
 			1
 		),
 		Character(
-			41,
+			42,
 			"Sara",
 			7,
 			14,
@@ -1248,7 +1248,7 @@ class DataApplication : Application() {
 			2
 		),
 		Character(
-			42,
+			43,
 			"Miranda",
 			5,
 			19,
@@ -1279,7 +1279,7 @@ class DataApplication : Application() {
 			2
 		),
 		Character(
-			43,
+			44,
 			"Shanamm",
 			1,
 			24,
@@ -1303,7 +1303,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			44,
+			45,
 			"Misha",
 			4,
 			28,
@@ -1327,7 +1327,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			45,
+			46,
 			"Xavier",
 			6,
 			38,
@@ -1351,7 +1351,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			46,
+			47,
 			"Amalda",
 			6,
 			34,
@@ -1375,7 +1375,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			47,
+			48,
 			"Conomor",
 			13,
 			39,
@@ -1399,7 +1399,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			48,
+			49,
 			"Diarmuid",
 			3,
 			36,
@@ -1423,7 +1423,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			49,
+			50,
 			"Saias",
 			12,
 			23,
@@ -1447,7 +1447,7 @@ class DataApplication : Application() {
 			false
 		),
 		Character(
-			50,
+			51,
 			"Ced",
 			14,
 			32,

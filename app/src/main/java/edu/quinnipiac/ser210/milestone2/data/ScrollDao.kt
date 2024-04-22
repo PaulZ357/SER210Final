@@ -23,5 +23,5 @@ interface ScrollDao {
 	fun getScroll(id: Int): Flow<Scroll>
 
 	@Query("SELECT * from scroll ORDER BY name ASC")
-	fun getScrolls(): Flow<Scroll>
+	fun getScrolls(): Flow<List<Scroll>>
 }
