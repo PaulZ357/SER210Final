@@ -20,15 +20,15 @@ class MainActivity : AppCompatActivity() {
 			insets
 		}
 
-		val characterDao = (application as DataApplication).characterDatabase.characterDao()
-		val scrollDao = (application as DataApplication).scrollDatabase.scrollDao()
+		val application: DataApplication = application as DataApplication
+		val characterDao = application.characterDatabase.characterDao()
+		val scrollDao = application.scrollDatabase.scrollDao()
 		lifecycleScope.launch {
-			characterDao.insert(Character(1, "Osian", 1, 27, 6,
-				0, 7, 9, 3, 4, 11, 6,
-				85, 30, 5, 25, 35, 55,
-				25, 25, 2, true, 2,	1,
-				3, 3,	3,	0,	0))
-			characterDao.getCharacter(1).collect {char: Character -> println(char)}
+			for (character: Character in application.defaultCharacters) {
+				characterDao.insert(character)
+				println(character)
+			}
+			characterDao.getCharacters().collect {char: Character -> println(char)}
 		}
 
 	}
