@@ -8,26 +8,7 @@
         android:id="@+id/welcomeFragment"
         android:name="edu.quinnipiac.ser210.milestone2.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
-        <action
-            android:id="@+id/action_welcomeFragment_to_compareFragment"
-            app:destination="@id/compareFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_addCharacterFragment"
-            app:destination="@id/addCharacterFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_addScrollFragment"
-            app:destination="@id/addScrollFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_calculateAveragesFragment"
-            app:destination="@id/calculateAveragesFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_editCharacterFragment"
-            app:destination="@id/editCharacterFragment" />
-        <action
-            android:id="@+id/action_welcomeFragment_to_editScrollFragment"
-            app:destination="@id/editScrollFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_welcome" />
     <fragment
         android:id="@+id/addCharacterFragment"
         android:name="edu.quinnipiac.ser210.milestone2.AddCharacterFragment"
