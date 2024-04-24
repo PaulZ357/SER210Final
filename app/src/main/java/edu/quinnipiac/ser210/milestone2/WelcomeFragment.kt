@@ -24,7 +24,7 @@ class WelcomeFragment : Fragment() {
         val charactersData = characterDao.getCharacters().asLiveData()
 
         charactersData.observe(viewLifecycleOwner) {
-            if (it.isEmpty()) {
+            if (it.size < application.defaultCharacters.size) {
                 lifecycleScope.launch {
                     Log.d("Database", "Initializing Database")
                     for (character: Character in application.defaultCharacters) {

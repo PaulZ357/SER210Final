@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlin.math.min
+import kotlin.math.pow
+import kotlin.math.round
 
 @Entity(tableName = "character")
 data class Character(
@@ -66,43 +68,47 @@ data class Character(
 	@ColumnInfo(name = "moveGain")
 	val movGain: Int = 0
 ) {
-	private fun getAverage(level: Int, base: Int, growth: Int, cap: Int = 20): Float {
-		return min(base + growth.toFloat() / 100 * (level - baseLevel), cap.toFloat())
+	private fun getAverage(level: Int, base: Int, growth: Int, cap: Int = 20): Double {
+		return roundPlaces(min(base + growth.toDouble() / 100 * (level - baseLevel), cap.toDouble()), 2)
 	}
 
-	fun getAverageHP(level: Int, promotes: Boolean): Float {
+	private fun roundPlaces(value: Double, places: Int): Double {
+		return round(value * 10.0.pow(places)) / 10.0.pow(places)
+	}
+
+	fun getAverageHP(level: Int): Double {
 		return getAverage(level, baseHP, HPGrowth, 80)
 	}
 
-	fun getAverageStr(level: Int, promotes: Boolean): Float {
+	fun getAverageStr(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseStr + if (promotes) strGain else 0, strGrowth)
 	}
 
-	fun getAverageMag(level: Int, promotes: Boolean): Float {
+	fun getAverageMag(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseMag + if (promotes) magGain else 0, magGrowth)
 	}
 
-	fun getAverageSkl(level: Int, promotes: Boolean): Float {
+	fun getAverageSkl(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseSkl + if (promotes) sklGain else 0, sklGrowth)
 	}
 
-	fun getAverageSpd(level: Int, promotes: Boolean): Float {
+	fun getAverageSpd(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseSpd + if (promotes) spdGain else 0, spdGrowth)
 	}
 
-	fun getAverageLck(level: Int, promotes: Boolean): Float {
-		return getAverage(level, baseLck, strGrowth)
+	fun getAverageLck(level: Int): Double {
+		return getAverage(level, baseLck, lckGrowth)
 	}
 
-	fun getAverageDef(level: Int, promotes: Boolean): Float {
+	fun getAverageDef(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseDef + if (promotes) defGain else 0, defGrowth)
 	}
 
-	fun getAverageCon(level: Int, promotes: Boolean): Float {
+	fun getAverageCon(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseCon + if (promotes) conGain else 0, conGrowth)
 	}
 
-	fun getAverageMov(level: Int, promotes: Boolean): Float {
+	fun getAverageMov(level: Int, promotes: Boolean): Double {
 		return getAverage(level, baseMov + if (promotes) movGain else 0, movGrowth)
 	}
 }
