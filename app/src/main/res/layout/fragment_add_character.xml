@@ -15,16 +15,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
-
     <TextView
         android:id="@+id/addCharacterLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="48sp"
-        android:text="Available Characters"
+        android:text="@string/available_characters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/addCharacterText"
         android:layout_width="278dp"

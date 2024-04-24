@@ -28,7 +28,7 @@ class AveragesAdapter(
 
 	override fun onBindViewHolder(holder: AveragesViewHolder, position: Int) {
 		val promoted = position >= unpromotedLevels
-		holder.bind(position + if(promoted) 0 else 1, promoted)
+		holder.bind(position + character.baseLevel - if(promoted) 1 else 0, promoted)
 	}
 
 	class AveragesViewHolder(
