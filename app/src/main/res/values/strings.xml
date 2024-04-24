@@ -27,4 +27,5 @@
     <string name="mag">Mag</string>
     <string name="str">Str</string>
     <string name="average_stats">Average Stats</string>
+    <string name="update">Update</string>
 </resources>
