@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentEditScrollBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,12 +30,15 @@ class EditScrollFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        val scrollname = ""
         binding = FragmentEditScrollBinding.inflate(layoutInflater)
         binding.editScrollButton.setOnClickListener {
             // ok button
+            Toast.makeText(this,"Edited scroll "+scrollname,4)
         }
         binding.editScrollDeleteButton.setOnClickListener {
             // delete button
+            Toast.makeText(this,"Deleted scroll "+scrollname,4)
         }
     }
 

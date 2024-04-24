@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditCharacterFragment">
-
     <Button
         android:id="@+id/editCharacterOKButton"
         android:layout_width="wrap_content"
@@ -16,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCharHP"
         app:layout_constraintVertical_bias="0.81" />
-
     <TextView
         android:id="@+id/editCharacterLabel"
         android:layout_width="wrap_content"
@@ -25,7 +23,6 @@
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/currentLevel"
         android:layout_width="106dp"
@@ -36,7 +33,6 @@
         android:text="@string/level"
         app:layout_constraintStart_toEndOf="@+id/editCharLevel"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <TextView
         android:id="@+id/editCharLevel"
         android:layout_width="wrap_content"
@@ -46,7 +42,6 @@
         android:text="@string/base_level"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
     <EditText
         android:id="@+id/baseHP"
         android:layout_width="97dp"
@@ -57,7 +52,6 @@
         android:text="@string/hp"
         app:layout_constraintStart_toEndOf="@+id/editCharHP"
         app:layout_constraintTop_toBottomOf="@+id/currentLevel" />
-
     <TextView
         android:id="@+id/editCharHP"
         android:layout_width="wrap_content"
@@ -67,7 +61,6 @@
         android:text="@string/base_hp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCharLevel" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -76,7 +69,6 @@
         android:text="@string/character_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCharacterLabel" />
-
     <Button
         android:id="@+id/editCharacterDeleteButton"
         android:layout_width="wrap_content"

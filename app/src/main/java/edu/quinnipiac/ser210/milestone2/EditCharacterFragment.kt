@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.Navigation
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentEditCharacterBinding
 
@@ -32,12 +33,15 @@ class EditCharacterFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        val charactername = ""
         binding = FragmentEditCharacterBinding.inflate(layoutInflater)
         binding.editCharacterOKButton.setOnClickListener {
             // ok button
+            Toast.makeText(this,"Edited character "+charactername,4)
         }
         binding.editCharacterDeleteButton.setOnClickListener {
             // delete button
+            Toast.makeText(this,"Deleted character "+charactername,4)
         }
     }
 

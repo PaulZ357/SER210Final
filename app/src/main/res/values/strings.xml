@@ -7,12 +7,12 @@
     <string name="compare">Compare</string>
     <string name="level">Level</string>
     <string name="current_hp">Current HP</string>
-    <string name="character_name"><![CDATA[Character <NAME>]]></string>
+    <string name="character_name">Character $Name</string>
     <string name="edit_character">Edit Character</string>
     <string name="base_level">Base Level</string>
     <string name="hp">HP</string>
     <string name="base_hp">Base HP</string>
-    <string name="scroll_name"><![CDATA[Scroll <NAME>]]></string>
+    <string name="scroll_name">Scroll $Name</string>
     <string name="magic">Magic</string>
     <string name="hp_growth_rate">HP Growth Rate</string>
     <string name="edit_scroll">Edit Scroll</string>
@@ -28,4 +28,6 @@
     <string name="str">Str</string>
     <string name="average_stats">Average Stats</string>
     <string name="update">Update</string>
+    <string name="available_characters">Available Characters</string>
+    <string name="name">Name</string>
 </resources>

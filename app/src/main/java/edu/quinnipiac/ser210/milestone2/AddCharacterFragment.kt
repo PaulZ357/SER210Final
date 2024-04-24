@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.room.Room
+import edu.quinnipiac.ser210.milestone2.data.CharacterDao
+import edu.quinnipiac.ser210.milestone2.data.Character
+import edu.quinnipiac.ser210.milestone2.data.CharacterRoomDatabase
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentAddCharacterBinding
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentEditCharacterBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +39,9 @@ class AddCharacterFragment : Fragment() {
         binding = FragmentAddCharacterBinding.inflate(layoutInflater)
         binding.addCharacterOkButton.setOnClickListener {
             // ok button
+            val name = binding.addCharacterText.text
+            Toast.makeText(this,"Added character "+name,4)
+            val char = Character(id,name.toString(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true)
         }
     }
 

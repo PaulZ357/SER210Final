@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentAddScrollBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +32,7 @@ class AddScrollFragment : Fragment() {
         binding = FragmentAddScrollBinding.inflate(layoutInflater)
         binding.addScrollOkButton.setOnClickListener {
             // ok button
+            Toast.makeText(this,"Added scroll "+binding.addScrollText.text,4)
         }
     }
 
