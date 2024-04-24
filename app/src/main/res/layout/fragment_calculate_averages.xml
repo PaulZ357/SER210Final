@@ -6,21 +6,157 @@
     android:layout_height="match_parent"
     tools:context=".AddCharacterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+<!--    <EditText-->
+<!--        android:id="@+id/promotion_level_edit_text"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="text"-->
+<!--        android:text="20" />-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="194dp"
-        android:layout_height="195dp"
+    <EditText
+        android:id="@+id/character_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Leif"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/average_stats_header" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/average_stats_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Average Stats"
+        android:layout_marginTop="8dp"
+        android:text="@string/average_stats"
         android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character_name_edit_text" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_button">
+
+        <TextView
+            android:id="@+id/level_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.1"
+            android:background="@drawable/cell_shape"
+            android:text="@string/level" />
+
+        <TextView
+            android:id="@+id/HP_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/hp" />
+
+        <TextView
+            android:id="@+id/str_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/str" />
+
+        <TextView
+            android:id="@+id/mag_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mag" />
+
+        <TextView
+            android:id="@+id/skl_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/skl" />
+
+        <TextView
+            android:id="@+id/spd_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/spd" />
+
+        <TextView
+            android:id="@+id/lck_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/lck" />
+
+        <TextView
+            android:id="@+id/def_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/def" />
+
+        <TextView
+            android:id="@+id/con_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/con" />
+
+        <TextView
+            android:id="@+id/mov_view"
+            android:layout_width="0dp"
+            android:background="@drawable/cell_shape"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/mov" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

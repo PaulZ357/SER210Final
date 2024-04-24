@@ -22,6 +22,9 @@ interface CharacterDao {
 	@Query("SELECT * from character WHERE id =:id")
 	fun getCharacter(id: Int): Flow<Character>
 
+	@Query("SELECT * from character WHERE name =:name")
+	fun getCharacter(name: String): Flow<Character>
+
 	@Query("SELECT * from character")
 	fun getCharacters(): Flow<List<Character>>
 }

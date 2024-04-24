@@ -18,4 +18,14 @@
     <string name="edit_scroll">Edit Scroll</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="con">Con</string>
+    <string name="mov">Mov</string>
+    <string name="def">Def</string>
+    <string name="lck">Lck</string>
+    <string name="spd">Spd</string>
+    <string name="skl">Skl</string>
+    <string name="mag">Mag</string>
+    <string name="str">Str</string>
+    <string name="average_stats">Average Stats</string>
+    <string name="update">Update</string>
 </resources>
