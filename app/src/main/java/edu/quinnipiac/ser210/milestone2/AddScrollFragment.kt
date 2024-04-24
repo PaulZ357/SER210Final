@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import edu.quinnipiac.ser210.milestone2.data.Scroll
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentAddScrollBinding
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,7 +25,7 @@ class AddScrollFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var binding: FragmentAddScrollBinding
+    private lateinit var binding: FragmentAddScrollBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,7 +35,14 @@ class AddScrollFragment : Fragment() {
         binding = FragmentAddScrollBinding.inflate(layoutInflater)
         binding.addScrollOkButton.setOnClickListener {
             // ok button
-            Toast.makeText(this,"Added scroll "+binding.addScrollText.text,4)
+            val name = binding.addScrollText.text
+            Toast.makeText(this.context,"Added scroll ",Toast.LENGTH_SHORT).show()
+            val scrollDao =
+                (activity?.application as DataApplication).scrollDatabase.scrollDao()
+            val scroll = Scroll(id,name.toString(),0,0,0,0,0,0,0,0,0)
+            lifecycleScope.launch {
+                scrollDao.insert(scroll)
+            }
         }
     }
 

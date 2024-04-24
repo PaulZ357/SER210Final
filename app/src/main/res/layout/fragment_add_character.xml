@@ -30,7 +30,7 @@
         android:layout_marginTop="53dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/name"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCharacterLabel" />
 </androidx.constraintlayout.widget.ConstraintLayout>

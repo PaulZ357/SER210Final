@@ -37,11 +37,11 @@ class EditCharacterFragment : Fragment() {
         binding = FragmentEditCharacterBinding.inflate(layoutInflater)
         binding.editCharacterOKButton.setOnClickListener {
             // ok button
-            Toast.makeText(this,"Edited character "+charactername,4)
+            Toast.makeText(this.context,"Edited character "+charactername,4).show()
         }
         binding.editCharacterDeleteButton.setOnClickListener {
             // delete button
-            Toast.makeText(this,"Deleted character "+charactername,4)
+            Toast.makeText(this.context,"Deleted character "+charactername,4).show()
         }
     }
 

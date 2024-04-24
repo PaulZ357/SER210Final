@@ -34,11 +34,11 @@ class EditScrollFragment : Fragment() {
         binding = FragmentEditScrollBinding.inflate(layoutInflater)
         binding.editScrollButton.setOnClickListener {
             // ok button
-            Toast.makeText(this,"Edited scroll "+scrollname,4)
+            Toast.makeText(this.context,"Edited scroll "+scrollname,4).show()
         }
         binding.editScrollDeleteButton.setOnClickListener {
             // delete button
-            Toast.makeText(this,"Deleted scroll "+scrollname,4)
+            Toast.makeText(this.context,"Deleted scroll "+scrollname,4).show()
         }
     }
 
