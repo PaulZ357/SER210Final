@@ -28,4 +28,5 @@
     <string name="str">Str</string>
     <string name="average_stats">Average Stats</string>
     <string name="update">Update</string>
+    <string name="enter_level_of_promotion">Enter level of promotion</string>
 </resources>
