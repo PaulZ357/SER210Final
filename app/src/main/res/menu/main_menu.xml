@@ -1,15 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/compare"
-        android:title="Compare"/>
-    <item android:id="@+id/addcharacter"
-        android:title="Add Character"/>
-    <item android:id="@+id/addscroll"
-        android:title="Add Scroll"/>
-    <item android:id="@+id/editcharacter"
-        android:title="Edit Character"/>
-    <item android:id="@+id/editscroll"
-        android:title="Edit Scroll"/>
-    <item android:id="@+id/calculateAvgs"
-        android:title="Calculate Averages"/>
 </menu>
