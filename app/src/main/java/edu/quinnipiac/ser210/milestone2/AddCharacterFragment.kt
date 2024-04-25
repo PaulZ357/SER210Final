@@ -11,11 +11,27 @@ import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentAddCharacterBinding
 import kotlinx.coroutines.launch
 
-class AddCharacterFragment : Fragment() {
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
+/**
+ * A simple [Fragment] subclass.
+ * Use the [AddCharacterFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class AddCharacterFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
     private lateinit var binding: FragmentAddCharacterBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
         binding = FragmentAddCharacterBinding.inflate(layoutInflater)
         binding.addCharacterOkButton.setOnClickListener {
             // ok button
@@ -23,10 +39,38 @@ class AddCharacterFragment : Fragment() {
             Toast.makeText(this.context,"Added character",Toast.LENGTH_SHORT).show()
             val characterDao =
                 (activity?.application as DataApplication).characterDatabase.characterDao()
-            val char = Character(id, name.toString(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true)
+            val char = Character(id,name.toString(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,true)
             lifecycleScope.launch {
                 characterDao.insert(char)
             }
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_add_character, container, false)
+    }
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment AddCharacterFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            AddCharacterFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
     }
 }

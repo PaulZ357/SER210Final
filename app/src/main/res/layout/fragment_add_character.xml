@@ -13,8 +13,7 @@
         android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
+        app:layout_constraintStart_toStartOf="parent" />
     <TextView
         android:id="@+id/addCharacterLabel"
         android:layout_width="wrap_content"
@@ -23,14 +22,203 @@
         android:text="@string/available_characters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/addCharacterText"
         android:layout_width="278dp"
         android:layout_height="49dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCharacterLabel" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseLevel"
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseHP"
+        android:layout_width="57dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseLevel"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseStr"
+        android:layout_width="111dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseHP"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseMag"
+        android:layout_width="105dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="2dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseStr"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseSkill"
+        android:layout_width="113dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseLevel" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseSpeed"
+        android:layout_width="87dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseSkill"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseHP" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseLuck"
+        android:layout_width="81dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseStr" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseDef"
+        android:layout_width="99dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseLuck"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseMag" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseCon"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseSkill" />
+
+    <EditText
+        android:id="@+id/addCharacterBaseMove"
+        android:layout_width="107dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseCon"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseSpeed" />
+
+    <EditText
+        android:id="@+id/addCharacterHPGrowth"
+        android:layout_width="94dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="15dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseMove"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseLuck" />
+
+    <EditText
+        android:id="@+id/addCharacterStrGrowth"
+        android:layout_width="100dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterHPGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseDef" />
+
+    <EditText
+        android:id="@+id/addCharacterMagGrowth"
+        android:layout_width="97dp"
+        android:layout_height="39dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseCon" />
+
+    <EditText
+        android:id="@+id/addCharacterSkillGrowth"
+        android:layout_width="110dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterMagGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseMove" />
+
+    <EditText
+        android:id="@+id/addCharacterSpeedGrowth"
+        android:layout_width="99dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterSkillGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterHPGrowth" />
+
+    <EditText
+        android:id="@+id/addCharacterLuckGrowth"
+        android:layout_width="91dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterSpeedGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterStrGrowth" />
+
+    <EditText
+        android:id="@+id/addCharacterDefGrowth"
+        android:layout_width="95dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterMagGrowth" />
+
+    <EditText
+        android:id="@+id/addCharacterConGrowth"
+        android:layout_width="99dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterMoveGain"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterSpeedGrowth" />
+
+    <EditText
+        android:id="@+id/addCharacterMoveGrowth"
+        android:layout_width="103dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/addCharacterDefGrowth"
+        app:layout_constraintTop_toBottomOf="@+id/addCharacterSkillGrowth" />
 </androidx.constraintlayout.widget.ConstraintLayout>
