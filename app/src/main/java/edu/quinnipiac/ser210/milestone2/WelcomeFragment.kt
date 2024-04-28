@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import edu.quinnipiac.ser210.milestone2.data.Character
+import edu.quinnipiac.ser210.milestone2.data.Scroll
 import kotlinx.coroutines.launch
 
 class WelcomeFragment : Fragment() {
@@ -21,14 +22,24 @@ class WelcomeFragment : Fragment() {
         val application: DataApplication = activity?.application as DataApplication
         val characterDao = application.characterDatabase.characterDao()
         val scrollDao = application.scrollDatabase.scrollDao()
-        val charactersData = characterDao.getCharacters().asLiveData()
 
-        charactersData.observe(viewLifecycleOwner) {
+        characterDao.getCharacters().asLiveData().observe(viewLifecycleOwner) {
             if (it.size < application.defaultCharacters.size) {
                 lifecycleScope.launch {
-                    Log.d("Database", "Initializing Database")
+                    Log.d("Database", "Initializing Character Database")
                     for (character: Character in application.defaultCharacters) {
                         characterDao.insert(character)
+                    }
+                }
+            }
+        }
+
+        scrollDao.getScrolls().asLiveData().observe(viewLifecycleOwner) {
+            if (it.size < application.defaultScrolls.size) {
+                lifecycleScope.launch {
+                    Log.d("Database", "Initializing Scroll Database")
+                    for (scroll: Scroll in application.defaultScrolls) {
+                        scrollDao.insert(scroll)
                     }
                 }
             }
