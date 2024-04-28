@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import edu.quinnipiac.ser210.milestone2.data.Character
+import edu.quinnipiac.ser210.milestone2.data.Scroll
 import edu.quinnipiac.ser210.milestone2.databinding.ListItemBinding
 
 class AveragesAdapter(
@@ -28,7 +29,7 @@ class AveragesAdapter(
 
 	override fun onBindViewHolder(holder: AveragesViewHolder, position: Int) {
 		val promoted = position >= unpromotedLevels
-		holder.bind(position + character.baseLevel - if(promoted) 1 else 0, promoted)
+		holder.bind(position + character.baseLevel - if (promoted) 1 else 0, promoted)
 	}
 
 	class AveragesViewHolder(
@@ -42,19 +43,23 @@ class AveragesAdapter(
 				val unpromotedLevel = if (promoted) levelsToPromotion else level
 				val promotedLevel = if (promoted) level - levelsToPromotion + 1 else 0
 				binding.levelView.text = String.format("%d/%d", unpromotedLevel, promotedLevel)
-			}
-			else {
+			} else {
 				binding.levelView.text = level.toString()
 			}
-			binding.HPView.text = character.getAverageHP(level).toString()
-			binding.strView.text = character.getAverageStr(level, promoted).toString()
-			binding.magView.text = character.getAverageMag(level, promoted).toString()
-			binding.sklView.text = character.getAverageSkl(level, promoted).toString()
-			binding.spdView.text = character.getAverageSpd(level, promoted).toString()
-			binding.lckView.text = character.getAverageLck(level).toString()
-			binding.defView.text = character.getAverageDef(level, promoted).toString()
-			binding.conView.text = character.getAverageCon(level, promoted).toString()
-			binding.movView.text = character.getAverageMov(level, promoted).toString()
+
+			val scrolls = HashMap<Scroll, Int>()
+			val heimScroll = DataApplication.defaultScrolls[0]
+			scrolls[heimScroll] = level - character.baseLevel
+			println(scrolls)
+			binding.HPView.text = character.getAverageHP(level, scrolls).toString()
+			binding.strView.text = character.getAverageStr(level, promoted, scrolls).toString()
+			binding.magView.text = character.getAverageMag(level, promoted, scrolls).toString()
+			binding.sklView.text = character.getAverageSkl(level, promoted, scrolls).toString()
+			binding.spdView.text = character.getAverageSpd(level, promoted, scrolls).toString()
+			binding.lckView.text = character.getAverageLck(level, scrolls).toString()
+			binding.defView.text = character.getAverageDef(level, promoted, scrolls).toString()
+			binding.conView.text = character.getAverageCon(level, promoted, scrolls).toString()
+			binding.movView.text = character.getAverageMov(level, promoted, scrolls).toString()
 		}
 
 	}

@@ -31,14 +31,6 @@ class CalculateAveragesViewModel(private val characterDao: CharacterDao) : ViewM
 		updateAdapter()
 	}
 
-	fun setCharacter(index: Int) {
-		if (_characterIndex.value != index) {
-			_characterIndex.value = index
-			updateLevels()
-			updateAdapter()
-		}
-	}
-
 	private fun updateLevels() {
 		viewModelScope.launch {
 			characterDao.getCharacters().collect { characterList ->
@@ -72,6 +64,7 @@ class CalculateAveragesViewModel(private val characterDao: CharacterDao) : ViewM
 
 	fun setCharacterIndex(index: Int) {
 		_characterIndex.value = index
+		updateLevels()
 		updateAdapter()
 	}
 
