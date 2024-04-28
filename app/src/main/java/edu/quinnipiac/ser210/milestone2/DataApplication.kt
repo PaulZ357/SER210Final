@@ -3,6 +3,7 @@ package edu.quinnipiac.ser210.milestone2
 import android.app.Application
 import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.data.CharacterRoomDatabase
+import edu.quinnipiac.ser210.milestone2.data.Scroll
 import edu.quinnipiac.ser210.milestone2.data.ScrollRoomDatabase
 
 class DataApplication : Application() {
@@ -1472,4 +1473,18 @@ class DataApplication : Application() {
 		)
 	)
 	val scrollDatabase: ScrollRoomDatabase by lazy { ScrollRoomDatabase.getDatabase(this) }
+	val defaultScrolls = arrayOf(
+		Scroll(1, "Heim Scroll", 0, 0, 30, 0, 0, 10, -10, 0, 0),
+		Scroll(2, "Baldr Scroll", 5, 5, 0, 5, 5, 5, 5, 0, 0),
+		Scroll(3, "Ullr Scroll", 0, 0, 0, 10, 10, 10, 0, 0, 0),
+		Scroll(4, "Fjalar Scroll", 0, 5, 5, 10, 10, 0, 0, 0, 0),
+		Scroll(5, "Nál Scroll", 10, 10, 0, -10, 0, 0, 10, 10, 0),
+		Scroll(6, "Thrud Scroll", 5, 5, 5, 10, 0, 5, 0, 0, 0),
+		Scroll(7, "Bragi Scroll", 0, -10, 10, 0, 0, 30, 0, 0, 0),
+		Scroll(8, "Ced Scroll", -10, 0, 10, 0, 30, 0, 0, 0, 0),
+		Scroll(9, "Od Scroll", 0, 0, 0, 30, 0, 0, 0, 0, 0),
+		Scroll(10, "Hoðr Scroll", 30, 10, 0, 0, 0, -10, 0, 0, 0),
+		Scroll(11, "Njörun Scroll", 0, 30, -10, 0, 10, -5, 5, 0, 0),
+		Scroll(12, "Dáinn Scroll", 0, 5, 0, 0, -10, 0, 30, 0, 5)
+	)
 }
