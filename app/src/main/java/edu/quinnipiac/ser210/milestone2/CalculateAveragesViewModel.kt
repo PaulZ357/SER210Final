@@ -8,10 +8,15 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.data.CharacterDao
+import edu.quinnipiac.ser210.milestone2.data.Scroll
+import edu.quinnipiac.ser210.milestone2.data.ScrollDao
 import kotlinx.coroutines.launch
 import kotlin.math.max
 
-class CalculateAveragesViewModel(private val characterDao: CharacterDao) : ViewModel() {
+class CalculateAveragesViewModel(
+	private val characterDao: CharacterDao,
+	private val scrollDao: ScrollDao
+) : ViewModel() {
 	val characters: LiveData<List<Character>> = characterDao.getCharacters().asLiveData()
 	val characterIndex: LiveData<Int>
 		get() = _characterIndex
@@ -52,12 +57,15 @@ class CalculateAveragesViewModel(private val characterDao: CharacterDao) : ViewM
 	private fun updateAdapter() {
 		viewModelScope.launch {
 			characterDao.getCharacters().collect {
-				val character = it[characterIndex.value!!]
-				val promotionLevel = levels.value?.get(levelIndex.value!!)
-				_adapter.value = AveragesAdapter(
-					character,
-					if ((promotionLevel != null) && character.canPromote) promotionLevel else 20
-				)
+				scrollDao.getScrolls().collect { scrolls: List<Scroll> ->
+					val character = it[characterIndex.value!!]
+					val promotionLevel = levels.value?.get(levelIndex.value!!)
+					_adapter.value = AveragesAdapter(
+						character,
+						if ((promotionLevel != null) && character.canPromote) promotionLevel else 20,
+						scrolls
+					)
+				}
 			}
 		}
 	}
@@ -74,12 +82,15 @@ class CalculateAveragesViewModel(private val characterDao: CharacterDao) : ViewM
 	}
 }
 
-class CalculateAveragesViewModelFactory(private val characterDao: CharacterDao) :
+class CalculateAveragesViewModelFactory(
+	private val characterDao: CharacterDao,
+	private val scrollDao: ScrollDao
+) :
 	ViewModelProvider.Factory {
 	override fun <T : ViewModel> create(modelClass: Class<T>): T {
 		if (modelClass.isAssignableFrom(CalculateAveragesViewModel::class.java)) {
 			@Suppress("UNCHECKED_CAST")
-			return CalculateAveragesViewModel(characterDao) as T
+			return CalculateAveragesViewModel(characterDao, scrollDao) as T
 		}
 		throw IllegalArgumentException("Unknown ViewModel class")
 	}
