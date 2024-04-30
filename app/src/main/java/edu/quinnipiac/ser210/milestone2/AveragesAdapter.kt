@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
-import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.data.Scroll
@@ -23,11 +25,23 @@ class AveragesAdapter(
 	private val promotedLevels = if (character.canPromote) 20 else 0
 	private val totalLevels: Int
 		get() = unpromotedLevels + promotedLevels
+	private val scrollsByPosition = ArrayList<HashMap<Scroll, Boolean>>()
+
+	init {
+		for (i: Int in 0..<totalLevels) {
+			scrollsByPosition.add(HashMap())
+		}
+	}
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AveragesViewHolder {
 		val adapterLayout =
 			LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
-		return AveragesViewHolder(adapterLayout, character, levelsToPromotion, scrolls)
+		val averagesViewHolder =
+			AveragesViewHolder(adapterLayout, character, levelsToPromotion, scrolls)
+		averagesViewHolder.activeScrolls.observe(parent.findViewTreeLifecycleOwner()!!) {
+			scrollsByPosition[averagesViewHolder.level] = it
+		}
+		return averagesViewHolder
 	}
 
 	override fun getItemCount(): Int {
@@ -36,50 +50,81 @@ class AveragesAdapter(
 
 	override fun onBindViewHolder(holder: AveragesViewHolder, position: Int) {
 		val promoted = position >= unpromotedLevels
-		holder.bind(position + character.baseLevel - if (promoted) 1 else 0, promoted)
+		val level = position + character.baseLevel - if (promoted) 1 else 0
+		holder.bind(level, promoted, scrollsByPosition[level])
 	}
 
 	class AveragesViewHolder(
-		view: View,
+		private val view: View,
 		private val character: Character,
 		private val levelsToPromotion: Int,
 		private val scrolls: List<Scroll>
 	) : RecyclerView.ViewHolder(view) {
 		private val binding = ListItemBinding.bind(itemView)
+		val activeScrolls: LiveData<HashMap<Scroll, Boolean>>
+			get() = _activeScrolls
+		private val _activeScrolls = MutableLiveData<HashMap<Scroll, Boolean>>()
+		var level = 0
 
-		init {
-			view.setOnClickListener {
-				val dialog = Dialog(view.context)
-				dialog.setContentView(R.layout.scroll_popup)
-				val list = dialog.findViewById<ListView>(R.id.List)
-				val scrollNames = Array(scrolls.size) {scrolls[it].name}
-				val adapter = ArrayAdapter(dialog.context, android.R.layout.simple_spinner_item, scrollNames)
-				list.adapter = adapter
-				list.onItemClickListener = ScrollListener(dialog, scrolls)
-				dialog.show()
-			}
-		}
-
-		class ScrollListener(private val dialog: Dialog, private val scrolls: List<Scroll>): OnItemClickListener {
+		class ScrollListener(
+			private val activeScrolls: MutableLiveData<HashMap<Scroll, Boolean>>,
+			private val scrolls: List<Scroll>
+		) :
+			OnItemClickListener {
 			override fun onItemClick(
 				parent: AdapterView<*>?,
 				view: View?,
 				position: Int,
 				id: Long
 			) {
-				dialog.dismiss()
+				val scroll = scrolls[position]
+				if (activeScrolls.value!!.contains(scroll)) {
+					activeScrolls.value!![scroll] = !activeScrolls.value!![scroll]!!
+				} else {
+					activeScrolls.value!![scroll] = true
+				}
 			}
 
 		}
 
-		fun bind(level: Int, promoted: Boolean) {
+		fun bind(level: Int, promoted: Boolean, activeScrolls: HashMap<Scroll, Boolean>) {
+			this.level = level
+			view.setOnClickListener {
+				val dialog = Dialog(view.context)
+				dialog.setContentView(R.layout.scroll_popup)
+				val list = dialog.findViewById<ListView>(R.id.List)
+				val scrollNames = Array(scrolls.size) { scrolls[it].name }
+				val adapter = ArrayAdapter(
+					dialog.context,
+					android.R.layout.simple_list_item_multiple_choice,
+					scrollNames
+				)
+				list.adapter = adapter
+				list.onItemClickListener = ScrollListener(_activeScrolls, scrolls)
+				list.choiceMode = ListView.CHOICE_MODE_MULTIPLE
+				for (index: Int in scrolls.indices) {
+					val scroll = scrolls[index]
+					if (activeScrolls.contains(scroll)) {
+						list.setItemChecked(index, activeScrolls[scroll]!!)
+					}
+				}
+				dialog.show()
+			}
+
 			if (character.canPromote) {
 				val unpromotedLevel = if (promoted) levelsToPromotion else level
 				val promotedLevel = if (promoted) level - levelsToPromotion + 1 else 0
 				binding.levelView.text = String.format("%d/%d", unpromotedLevel, promotedLevel)
+				if (promotedLevel == 1) {
+					view.setOnClickListener { }
+				}
 			} else {
 				binding.levelView.text = level.toString()
 			}
+			if (level == 1) {
+				view.setOnClickListener { }
+			}
+			_activeScrolls.value = activeScrolls
 
 			val scrolls = HashMap<Scroll, Int>()
 			val heimScroll = DataApplication.defaultScrolls[0]
