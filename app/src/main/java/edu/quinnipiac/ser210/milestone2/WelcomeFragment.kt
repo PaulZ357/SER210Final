@@ -14,36 +14,36 @@ import kotlinx.coroutines.launch
 
 class WelcomeFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_welcome, container, false)
-        val application: DataApplication = activity?.application as DataApplication
-        val characterDao = application.characterDatabase.characterDao()
-        val scrollDao = application.scrollDatabase.scrollDao()
+	override fun onCreateView(
+		inflater: LayoutInflater, container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? {
+		val view = inflater.inflate(R.layout.fragment_welcome, container, false)
+		val application: DataApplication = activity?.application as DataApplication
+		val characterDao = application.characterDatabase.characterDao()
+		val scrollDao = application.scrollDatabase.scrollDao()
 
-        characterDao.getCharacters().asLiveData().observe(viewLifecycleOwner) {
-            if (it.size < application.defaultCharacters.size) {
-                lifecycleScope.launch {
-                    Log.d("Database", "Initializing Character Database")
-                    for (character: Character in application.defaultCharacters) {
-                        characterDao.insert(character)
-                    }
-                }
-            }
-        }
+		characterDao.getCharacters().asLiveData().observe(viewLifecycleOwner) {
+			if (it.size < DataApplication.defaultCharacters.size) {
+				lifecycleScope.launch {
+					Log.d("Database", "Initializing Character Database")
+					for (character: Character in DataApplication.defaultCharacters) {
+						characterDao.insert(character)
+					}
+				}
+			}
+		}
 
-        scrollDao.getScrolls().asLiveData().observe(viewLifecycleOwner) {
-            if (it.size < application.defaultScrolls.size) {
-                lifecycleScope.launch {
-                    Log.d("Database", "Initializing Scroll Database")
-                    for (scroll: Scroll in application.defaultScrolls) {
-                        scrollDao.insert(scroll)
-                    }
-                }
-            }
-        }
-        return view
-    }
+		scrollDao.getScrolls().asLiveData().observe(viewLifecycleOwner) {
+			if (it.size < DataApplication.defaultScrolls.size) {
+				lifecycleScope.launch {
+					Log.d("Database", "Initializing Scroll Database")
+					for (scroll: Scroll in DataApplication.defaultScrolls) {
+						scrollDao.insert(scroll)
+					}
+				}
+			}
+		}
+		return view
+	}
 }

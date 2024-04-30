@@ -17,7 +17,11 @@ class CalculateAveragesFragment : Fragment() {
 	private lateinit var binding: FragmentCalculateAveragesBinding
 
 	private val viewModel: CalculateAveragesViewModel by activityViewModels {
-		CalculateAveragesViewModelFactory((activity?.application as DataApplication).characterDatabase.characterDao())
+		val application: DataApplication = activity?.application as DataApplication
+		CalculateAveragesViewModelFactory(
+			application.characterDatabase.characterDao(),
+			application.scrollDatabase.scrollDao()
+		)
 	}
 
 	override fun onCreateView(
@@ -48,6 +52,7 @@ class CalculateAveragesFragment : Fragment() {
 
 		return binding.root
 	}
+
 
 	class CharacterListener(private val viewModel: CalculateAveragesViewModel) :
 		OnItemSelectedListener {
