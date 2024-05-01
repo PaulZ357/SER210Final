@@ -42,44 +42,50 @@ class EditCharacterFragment : Fragment() {
 			binding.conGain.isEnabled = it
 			binding.moveGain.isEnabled = it
 		}
-		characterIndex.observe(viewLifecycleOwner) {
-			if (characterIndex.value!! < DataApplication.defaultCharacters.size) {
+		characterIndex.observe(viewLifecycleOwner) {index: Int ->
+			if (index < DataApplication.defaultCharacters.size) {
 				binding.editCharacterDeleteButton.text = "Restore"
 			} else {
 				binding.editCharacterDeleteButton.text = "Delete"
 			}
-			characterDao.getCharacter(characterIndex.value!! + 1).asLiveData()
+			characterDao.getCharacters().asLiveData()
 				.observe(viewLifecycleOwner) {
-					binding.name.setText(it.name)
-					binding.currentLevel.setText(it.baseLevel.toString())
-					binding.baseHP.setText(it.baseHP.toString())
-					binding.baseStr.setText(it.baseStr.toString())
-					binding.baseMag.setText(it.baseMag.toString())
-					binding.baseSpeed.setText(it.baseSpd.toString())
-					binding.baseSkill.setText(it.baseSkl.toString())
-					binding.baseLuck.setText(it.baseLck.toString())
-					binding.baseDef.setText(it.baseDef.toString())
-					binding.baseCon.setText(it.baseCon.toString())
-					binding.baseMove.setText(it.baseMov.toString())
-					binding.hpGrowth.setText(it.HPGrowth.toString())
-					binding.strGrowth.setText(it.strGrowth.toString())
-					binding.magGrowth.setText(it.magGrowth.toString())
-					binding.skillGrowth.setText(it.sklGrowth.toString())
-					binding.speedGrowth.setText(it.spdGrowth.toString())
-					binding.luckGrowth.setText(it.lckGrowth.toString())
-					binding.defGrowth.setText(it.defGrowth.toString())
-					binding.conGrowth.setText(it.conGrowth.toString())
-					binding.moveGrowth.setText(it.movGrowth.toString())
-					binding.canPromote.setSelection(if (it.canPromote) 0 else 1)
-					binding.strGain.setText(it.strGain.toString())
-					binding.magGain.setText(it.magGain.toString())
-					binding.skillGain.setText(it.sklGain.toString())
-					binding.speedGain.setText(it.spdGain.toString())
-					binding.defGain.setText(it.defGain.toString())
-					binding.conGain.setText(it.conGain.toString())
-					binding.moveGain.setText(it.movGain.toString())
+					if (index < it.size) {
+						val character = it[index]
+						binding.name.setText(character.name)
+						binding.currentLevel.setText(character.baseLevel.toString())
+						binding.baseHP.setText(character.baseHP.toString())
+						binding.baseStr.setText(character.baseStr.toString())
+						binding.baseMag.setText(character.baseMag.toString())
+						binding.baseSpeed.setText(character.baseSpd.toString())
+						binding.baseSkill.setText(character.baseSkl.toString())
+						binding.baseLuck.setText(character.baseLck.toString())
+						binding.baseDef.setText(character.baseDef.toString())
+						binding.baseCon.setText(character.baseCon.toString())
+						binding.baseMove.setText(character.baseMov.toString())
+						binding.hpGrowth.setText(character.HPGrowth.toString())
+						binding.strGrowth.setText(character.strGrowth.toString())
+						binding.magGrowth.setText(character.magGrowth.toString())
+						binding.skillGrowth.setText(character.sklGrowth.toString())
+						binding.speedGrowth.setText(character.spdGrowth.toString())
+						binding.luckGrowth.setText(character.lckGrowth.toString())
+						binding.defGrowth.setText(character.defGrowth.toString())
+						binding.conGrowth.setText(character.conGrowth.toString())
+						binding.moveGrowth.setText(character.movGrowth.toString())
+						binding.canPromote.setSelection(if (character.canPromote) 0 else 1)
+						binding.strGain.setText(character.strGain.toString())
+						binding.magGain.setText(character.magGain.toString())
+						binding.skillGain.setText(character.sklGain.toString())
+						binding.speedGain.setText(character.spdGain.toString())
+						binding.defGain.setText(character.defGain.toString())
+						binding.conGain.setText(character.conGain.toString())
+						binding.moveGain.setText(character.movGain.toString())
 
-					canPromote.value = it.canPromote
+						canPromote.value = character.canPromote
+					}
+					else {
+						characterIndex.value = characterIndex.value?.minus(1)
+					}
 				}
 		}
 
@@ -155,14 +161,21 @@ class EditCharacterFragment : Fragment() {
 					characterDao.update(character)
 				}
 			} else {
+				println("DeleteA")
 				// delete button
 				Toast.makeText(this.context, "Deleted character $charactername", Toast.LENGTH_SHORT)
 					.show()
-				val character = characterDao.getCharacter(characterIndex.value!! + 1)
 				lifecycleScope.launch {
-					character.collect { data ->
+					var delete = true
+					val characters = characterDao.getCharacters()
+					characters.collect { data ->
 						// Update the UI with the new data
-						characterDao.delete(data)
+						if (delete) {
+							println("DeleteB")
+							characterDao.delete(data[characterIndex.value!!])
+							delete = false
+							characterIndex.value = data.size - 1
+						}
 					}
 				}
 			}

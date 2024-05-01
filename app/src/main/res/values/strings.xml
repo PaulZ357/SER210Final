@@ -62,4 +62,5 @@
     <string name="mov_growth">Mov Growth</string>
     <string name="mov_gain">Mov Gain</string>
     <string name="n_a">N/A</string>
+    <string name="promotion_gains">Promotion Gains</string>
 </resources>

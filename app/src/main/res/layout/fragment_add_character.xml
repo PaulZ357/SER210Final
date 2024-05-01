@@ -7,242 +7,422 @@
     tools:context=".AddCharacterFragment">
 
     <Button
-        android:id="@+id/addCharacterOkButton"
+        android:id="@+id/editCharacterOKButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
     <TextView
-        android:id="@+id/addCharacterLabel"
+        android:id="@+id/editCharacterLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add Character"
         android:textSize="48sp"
-        android:text="@string/available_characters"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/addCharacterText"
-        android:layout_width="278dp"
-        android:layout_height="49dp"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterLabel" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseLevel"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Base Level"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseHP"
-        android:layout_width="80dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:hint="Base HP"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseLevel"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseStr"
-        android:layout_width="116dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="Base Strength"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseHP"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseMag"
-        android:layout_width="105dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="Base Magic"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseStr"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterText" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseSkill"
-        android:layout_width="93dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:hint="Base Skill"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseLevel" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseSpeed"
-        android:layout_width="107dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:hint="Base Speed"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseSkill"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseHP" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseLuck"
-        android:layout_width="93dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="Base Luck"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseSpeed"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseStr" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseDef"
-        android:layout_width="99dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:hint="Base Defense"
-        android:inputType="number"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseLuck"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseMag" />
-
-    <EditText
-        android:id="@+id/addCharacterBaseCon"
-        android:layout_width="98dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="6dp"
-        android:ems="10"
-        android:hint="Base Constitution"
-        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseSkill" />
+        app:layout_constraintTop_toBottomOf="@+id/editCharacterLabel">
 
-    <EditText
-        android:id="@+id/addCharacterBaseMove"
-        android:layout_width="107dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="7dp"
-        android:ems="10"
-        android:hint="Base Move"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseCon"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseSpeed" />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="text" />
 
-    <EditText
-        android:id="@+id/addCharacterHPGrowth"
-        android:layout_width="94dp"
-        android:layout_height="45dp"
+        <EditText
+            android:id="@+id/currentLevel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/level"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/canPromote"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="HP Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterBaseMove"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseLuck" />
-
-    <EditText
-        android:id="@+id/addCharacterStrGrowth"
-        android:layout_width="100dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="6dp"
-        android:ems="10"
-        android:hint="Strength Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterHPGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseDef" />
-
-    <EditText
-        android:id="@+id/addCharacterMagGrowth"
-        android:layout_width="97dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:hint="Magic Growth"
-        android:inputType="number"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseCon" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout4">
 
-    <EditText
-        android:id="@+id/addCharacterSkillGrowth"
-        android:layout_width="110dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:hint="Skill Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterMagGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterBaseMove" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/addCharacterSpeedGrowth"
-        android:layout_width="99dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:ems="10"
-        android:hint="Speed Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterSkillGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterHPGrowth" />
+            <TextView
+                android:id="@+id/baseStats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/base_stats" />
 
-    <EditText
-        android:id="@+id/addCharacterLuckGrowth"
-        android:layout_width="91dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="4dp"
-        android:ems="10"
-        android:hint="Luck Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterSpeedGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterStrGrowth" />
+            <TextView
+                android:id="@+id/growthStats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/growth_rates" />
 
-    <EditText
-        android:id="@+id/addCharacterDefGrowth"
-        android:layout_width="133dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Defense Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterMagGrowth" />
+            <TextView
+                android:id="@+id/promotionGains"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/promotion_gains" />
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/addCharacterConGrowth"
-        android:layout_width="99dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Constitution Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterDefGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterSkillGrowth" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/addCharacterMoveGrowth"
-        android:layout_width="103dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Move Growth"
-        android:inputType="number"
-        app:layout_constraintStart_toEndOf="@+id/addCharacterConGrowth"
-        app:layout_constraintTop_toBottomOf="@+id/addCharacterSpeedGrowth" />
+            <EditText
+                android:id="@+id/baseHP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_hp"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/hpGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hp_growth"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/hpGain"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseStr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_str"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/strGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/str_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/strGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/str_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseMag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_mag"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/magGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/mag_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/magGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/mag_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseSkill"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_skl"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/skillGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/skl_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/skillGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/skl_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseSpeed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_spd"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/speedGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/spd_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/speedGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/spd_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseLuck"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_lck"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/luckGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/lck_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <TextView
+                android:id="@+id/luckGain"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseDef"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_def"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/defGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/def_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/defGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/def_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseCon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_con"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/conGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/con_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/conGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/con_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/baseMove"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/base_mov"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/moveGrowth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/mov_growth"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+
+            <EditText
+                android:id="@+id/moveGain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/mov_gain"
+                android:inputType="number"
+                app:layout_columnWeight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
