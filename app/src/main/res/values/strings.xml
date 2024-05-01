@@ -70,4 +70,5 @@
     <string name="current_skl">Current Skill</string>
     <string name="current_mag">Current Mag</string>
     <string name="current_str">Current Str.</string>
+    <string name="current_move">Current Move</string>
 </resources>

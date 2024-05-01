@@ -12,8 +12,12 @@ import edu.quinnipiac.ser210.milestone2.databinding.FragmentEditScrollBinding
 class EditScrollFragment : Fragment() {
 	private lateinit var binding: FragmentEditScrollBinding
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
+	override fun onCreateView(
+		inflater: LayoutInflater, container: ViewGroup?,
+		savedInstanceState: Bundle?
+	): View? {
+		// Inflate the layout for this fragment
+		inflater.inflate(R.layout.fragment_edit_scroll, container, false)
 		val scrollname = ""
 		binding = FragmentEditScrollBinding.inflate(layoutInflater)
 		binding.editScrollButton.setOnClickListener {
@@ -24,12 +28,7 @@ class EditScrollFragment : Fragment() {
 			// delete button
 			Toast.makeText(this.context, "Deleted scroll " + scrollname, 4).show()
 		}
-	}
-	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
-	): View? {
-		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_edit_scroll, container, false)
+
+		return binding.root
 	}
 }
