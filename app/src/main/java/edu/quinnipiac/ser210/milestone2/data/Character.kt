@@ -16,39 +16,39 @@ data class Character(
 	@ColumnInfo(name = "baseLevel")
 	val baseLevel: Int,
 	@ColumnInfo(name = "baseHP")
-	var baseHP: Int,
+	val baseHP: Int,
 	@ColumnInfo(name = "baseStr")
-	var baseStr: Int,
+	val baseStr: Int,
 	@ColumnInfo(name = "baseMag")
-	var baseMag: Int,
+	val baseMag: Int,
 	@ColumnInfo(name = "baseSkill")
-	var baseSkl: Int,
+	val baseSkl: Int,
 	@ColumnInfo(name = "baseSpeed")
-	var baseSpd: Int,
+	val baseSpd: Int,
 	@ColumnInfo(name = "baseLuck")
-	var baseLck: Int,
+	val baseLck: Int,
 	@ColumnInfo(name = "baseDef")
-	var baseDef: Int,
+	val baseDef: Int,
 	@ColumnInfo(name = "baseCon")
-	var baseCon: Int,
+	val baseCon: Int,
 	@ColumnInfo(name = "baseMove")
 	val baseMov: Int,
 	@ColumnInfo(name = "HPGrowth")
-	var HPGrowth: Int,
+	val HPGrowth: Int,
 	@ColumnInfo(name = "strGrowth")
-	var strGrowth: Int,
+	val strGrowth: Int,
 	@ColumnInfo(name = "magGrowth")
-	var magGrowth: Int,
+	val magGrowth: Int,
 	@ColumnInfo(name = "skillGrowth")
-	var sklGrowth: Int,
+	val sklGrowth: Int,
 	@ColumnInfo(name = "speedGrowth")
-	var spdGrowth: Int,
+	val spdGrowth: Int,
 	@ColumnInfo(name = "luckGrowth")
-	var lckGrowth: Int,
+	val lckGrowth: Int,
 	@ColumnInfo(name = "defGrowth")
-	var defGrowth: Int,
+	val defGrowth: Int,
 	@ColumnInfo(name = "conGrowth")
-	var conGrowth: Int,
+	val conGrowth: Int,
 	@ColumnInfo(name = "moveGrowth")
 	val movGrowth: Int,
 	@ColumnInfo(name = "canPromote")
