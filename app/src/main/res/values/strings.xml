@@ -63,4 +63,11 @@
     <string name="mov_gain">Mov Gain</string>
     <string name="n_a">N/A</string>
     <string name="promotion_gains">Promotion Gains</string>
+    <string name="current_con">Current Con.</string>
+    <string name="current_def">Current Def.</string>
+    <string name="current_lck">Current Luck</string>
+    <string name="current_spd">Current Speed</string>
+    <string name="current_skl">Current Skill</string>
+    <string name="current_mag">Current Mag</string>
+    <string name="current_str">Current Str.</string>
 </resources>
