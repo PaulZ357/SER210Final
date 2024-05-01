@@ -40,6 +40,7 @@ class AveragesAdapter(
 			AveragesViewHolder(adapterLayout, character, levelsToPromotion, scrolls)
 		averagesViewHolder.activeScrolls.observe(parent.findViewTreeLifecycleOwner()!!) {
 			scrollsByPosition[averagesViewHolder.level] = it
+			averagesViewHolder.update()
 		}
 		return averagesViewHolder
 	}
@@ -65,10 +66,12 @@ class AveragesAdapter(
 			get() = _activeScrolls
 		private val _activeScrolls = MutableLiveData<HashMap<Scroll, Boolean>>()
 		var level = 0
+		private var promoted = false
 
 		class ScrollListener(
 			private val activeScrolls: MutableLiveData<HashMap<Scroll, Boolean>>,
-			private val scrolls: List<Scroll>
+			private val scrolls: List<Scroll>,
+			private val source: AveragesViewHolder
 		) :
 			OnItemClickListener {
 			override fun onItemClick(
@@ -83,12 +86,14 @@ class AveragesAdapter(
 				} else {
 					activeScrolls.value!![scroll] = true
 				}
+				source.update()
 			}
 
 		}
 
 		fun bind(level: Int, promoted: Boolean, activeScrolls: HashMap<Scroll, Boolean>) {
 			this.level = level
+			this.promoted = promoted
 			view.setOnClickListener {
 				val dialog = Dialog(view.context)
 				dialog.setContentView(R.layout.scroll_popup)
@@ -100,7 +105,7 @@ class AveragesAdapter(
 					scrollNames
 				)
 				list.adapter = adapter
-				list.onItemClickListener = ScrollListener(_activeScrolls, scrolls)
+				list.onItemClickListener = ScrollListener(_activeScrolls, scrolls, this)
 				list.choiceMode = ListView.CHOICE_MODE_MULTIPLE
 				for (index: Int in scrolls.indices) {
 					val scroll = scrolls[index]
@@ -125,10 +130,14 @@ class AveragesAdapter(
 				view.setOnClickListener { }
 			}
 			_activeScrolls.value = activeScrolls
+			update()
+		}
 
+		fun update() {
 			val scrolls = HashMap<Scroll, Int>()
-			val heimScroll = DataApplication.defaultScrolls[0]
-			scrolls[heimScroll] = level - character.baseLevel
+			for (scroll in activeScrolls.value!!.keys) {
+				scrolls[scroll] = if (activeScrolls.value!![scroll] == true) 1 else 0
+			}
 			binding.HPView.text = character.getAverageHP(level, scrolls).toString()
 			binding.strView.text = character.getAverageStr(level, promoted, scrolls).toString()
 			binding.magView.text = character.getAverageMag(level, promoted, scrolls).toString()

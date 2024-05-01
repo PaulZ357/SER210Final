@@ -20,7 +20,8 @@ class CalculateAveragesFragment : Fragment() {
 		val application: DataApplication = activity?.application as DataApplication
 		CalculateAveragesViewModelFactory(
 			application.characterDatabase.characterDao(),
-			application.scrollDatabase.scrollDao()
+			application.scrollDatabase.scrollDao(),
+			viewLifecycleOwner
 		)
 	}
 

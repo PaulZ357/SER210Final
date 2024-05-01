@@ -1,5 +1,6 @@
 package edu.quinnipiac.ser210.milestone2
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,8 @@ import kotlin.math.max
 
 class CalculateAveragesViewModel(
 	private val characterDao: CharacterDao,
-	private val scrollDao: ScrollDao
+	private val scrollDao: ScrollDao,
+	private val lifecycleOwner: LifecycleOwner
 ) : ViewModel() {
 	val characters: LiveData<List<Character>> = characterDao.getCharacters().asLiveData()
 	val characterIndex: LiveData<Int>
@@ -84,13 +86,14 @@ class CalculateAveragesViewModel(
 
 class CalculateAveragesViewModelFactory(
 	private val characterDao: CharacterDao,
-	private val scrollDao: ScrollDao
+	private val scrollDao: ScrollDao,
+	private val lifecycleOwner: LifecycleOwner
 ) :
 	ViewModelProvider.Factory {
 	override fun <T : ViewModel> create(modelClass: Class<T>): T {
 		if (modelClass.isAssignableFrom(CalculateAveragesViewModel::class.java)) {
 			@Suppress("UNCHECKED_CAST")
-			return CalculateAveragesViewModel(characterDao, scrollDao) as T
+			return CalculateAveragesViewModel(characterDao, scrollDao, lifecycleOwner) as T
 		}
 		throw IllegalArgumentException("Unknown ViewModel class")
 	}
