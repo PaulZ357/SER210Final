@@ -32,4 +32,12 @@
     <string name="available_characters">Available Characters</string>
     <string name="growth_stats">Growth Stats</string>
     <string name="base_stats">Base Stats</string>
+    <string name="current_str">Current Strength</string>
+    <string name="current_mag">Current Magic</string>
+    <string name="current_skill">Current Skill</string>
+    <string name="current_speed">Current Speed</string>
+    <string name="current_luck">Current Luck</string>
+    <string name="current_def">Current Defense</string>
+    <string name="current_con">Current Constitution</string>
+    <string name="current_move">Current Move</string>
 </resources>

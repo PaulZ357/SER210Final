@@ -41,7 +41,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/level"
+        android:text="@string/hp"
         app:layout_constraintStart_toEndOf="@+id/compareCharHP"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -64,7 +64,246 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/currentHP"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    <EditText
+        android:id="@+id/currentStr"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/str"
+        app:layout_constraintStart_toEndOf="@+id/compareCharStr"
+        app:layout_constraintTop_toBottomOf="@+id/currentHP" />
 
+    <TextView
+        android:id="@+id/compareCharStr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/current_str"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharHP" />
+
+    <TextView
+        android:id="@+id/averageStr"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Str: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentStr"
+        app:layout_constraintTop_toBottomOf="@+id/averageHP" />
+
+    <EditText
+        android:id="@+id/currentMag"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/mag"
+        app:layout_constraintStart_toEndOf="@+id/compareCharMag"
+        app:layout_constraintTop_toBottomOf="@+id/currentStr" />
+
+    <TextView
+        android:id="@+id/compareCharMag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/current_mag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharStr" />
+
+    <TextView
+        android:id="@+id/averageMag"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Mag: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentMag"
+        app:layout_constraintTop_toBottomOf="@+id/averageStr" />
+
+    <EditText
+        android:id="@+id/currentSkill"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/skl"
+        app:layout_constraintStart_toEndOf="@+id/compareCharSkill"
+        app:layout_constraintTop_toBottomOf="@+id/currentMag" />
+
+    <TextView
+        android:id="@+id/compareCharSkill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/current_skill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharMag" />
+
+    <TextView
+        android:id="@+id/averageSkill"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Skill: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentSkill"
+        app:layout_constraintTop_toBottomOf="@+id/averageMag" />
+
+    <EditText
+        android:id="@+id/currentSpeed"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/spd"
+        app:layout_constraintStart_toEndOf="@+id/compareCharSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/currentSkill" />
+
+    <TextView
+        android:id="@+id/compareCharSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/current_speed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharSkill" />
+
+    <TextView
+        android:id="@+id/averageSpeed"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Speed: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/averageSkill" />
+
+    <EditText
+        android:id="@+id/currentLuck"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/lck"
+        app:layout_constraintStart_toEndOf="@+id/compareCharLuck"
+        app:layout_constraintTop_toBottomOf="@+id/currentSpeed" />
+
+    <TextView
+        android:id="@+id/compareCharLuck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/current_luck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharSpeed" />
+
+    <TextView
+        android:id="@+id/averageLuck"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Luck: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentLuck"
+        app:layout_constraintTop_toBottomOf="@+id/averageSpeed" />
+
+    <EditText
+        android:id="@+id/currentDef"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/def"
+        app:layout_constraintStart_toEndOf="@+id/compareCharDef"
+        app:layout_constraintTop_toBottomOf="@+id/currentLuck" />
+
+    <TextView
+        android:id="@+id/compareCharDef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/current_def"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharLuck" />
+
+    <TextView
+        android:id="@+id/averageDef"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Def: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentDef"
+        app:layout_constraintTop_toBottomOf="@+id/averageLuck" />
+
+    <EditText
+        android:id="@+id/currentCon"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/con"
+        app:layout_constraintStart_toEndOf="@+id/compareCharCon"
+        app:layout_constraintTop_toBottomOf="@+id/currentDef" />
+
+    <TextView
+        android:id="@+id/compareCharCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/current_con"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharDef" />
+
+    <TextView
+        android:id="@+id/averageCon"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Con: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentCon"
+        app:layout_constraintTop_toBottomOf="@+id/averageDef" />
+
+    <EditText
+        android:id="@+id/currentMove"
+        android:layout_width="62dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/mov"
+        app:layout_constraintStart_toEndOf="@+id/compareCharMove"
+        app:layout_constraintTop_toBottomOf="@+id/currentCon" />
+
+    <TextView
+        android:id="@+id/compareCharMove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/current_move"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compareCharCon" />
+
+    <TextView
+        android:id="@+id/averageMove"
+        android:layout_width="85dp"
+        android:layout_height="22dp"
+        android:text="Average Move: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentMove"
+        app:layout_constraintTop_toBottomOf="@+id/averageCon" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="336dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="37dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/compareLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

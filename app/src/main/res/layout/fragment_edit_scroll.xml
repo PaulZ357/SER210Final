@@ -28,14 +28,15 @@
 
     <EditText
         android:id="@+id/hpGrowthRate"
-        android:layout_width="62dp"
-        android:layout_height="47dp"
+        android:layout_width="85dp"
+        android:layout_height="54dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="35dp"
         android:ems="10"
         android:inputType="text"
         android:text="@string/hp"
         app:layout_constraintStart_toEndOf="@+id/HPGrowthText"
-        tools:layout_editor_absoluteY="139dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/HPGrowthText"
@@ -49,25 +50,25 @@
 
     <EditText
         android:id="@+id/magicGrowthRate"
-        android:layout_width="62dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="text"
         android:text="@string/magic"
-        app:layout_constraintTop_toBottomOf="@+id/hpGrowthRate"
-        tools:layout_editor_absoluteX="108dp" />
+        app:layout_constraintStart_toEndOf="@+id/magicText"
+        app:layout_constraintTop_toBottomOf="@+id/hpGrowthRate" />
 
     <TextView
         android:id="@+id/magicText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/base_hp"
-        app:layout_constraintEnd_toStartOf="@+id/magicGrowthRate"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintTop_toBottomOf="@+id/HPGrowthText" />
 
     <TextView
         android:id="@+id/textView2"
@@ -75,8 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/scroll_name"
-        app:layout_constraintTop_toBottomOf="@+id/editScrollLabel"
-        tools:layout_editor_absoluteX="13dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editScrollLabel" />
 
     <Button
         android:id="@+id/editScrollDeleteButton"
