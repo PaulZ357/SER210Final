@@ -10,12 +10,12 @@
         android:id="@+id/editScrollButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="32dp"
         android:text="@string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/magicGrowthRate"
-        app:layout_constraintVertical_bias="0.799" />
+        app:layout_constraintTop_toBottomOf="@+id/moveGrowthText"
+        app:layout_constraintVertical_bias="0.927" />
 
     <TextView
         android:id="@+id/editScrollLabel"
@@ -31,44 +31,198 @@
         android:layout_width="85dp"
         android:layout_height="54dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/hp"
+        android:hint="@string/hp"
+        android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/HPGrowthText"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollSpinner" />
 
     <TextView
         android:id="@+id/HPGrowthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
         android:text="@string/hp_growth_rate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/magicGrowthRate"
+        android:id="@+id/strGrowthRate"
         android:layout_width="101dp"
         android:layout_height="50dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/magic"
-        app:layout_constraintStart_toEndOf="@+id/magicText"
+        android:inputType="number"
+        android:hint="@string/skl"
+        app:layout_constraintStart_toEndOf="@+id/strGrowthText"
         app:layout_constraintTop_toBottomOf="@+id/hpGrowthRate" />
 
     <TextView
-        android:id="@+id/magicText"
+        android:id="@+id/strGrowthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="@string/base_hp"
+        android:text="Strength Growth"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HPGrowthText" />
+
+    <EditText
+        android:id="@+id/magicGrowthRate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/magic"
+        app:layout_constraintStart_toEndOf="@+id/magicGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/strGrowthRate" />
+
+    <TextView
+        android:id="@+id/magicGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Magic Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/strGrowthText" />
+
+    <EditText
+        android:id="@+id/skillGrowthRate"
+        android:layout_width="85dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/skl"
+        app:layout_constraintStart_toEndOf="@+id/skillGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/magicGrowthRate" />
+
+    <TextView
+        android:id="@+id/skillGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Skill Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/magicGrowthText" />
+
+    <EditText
+        android:id="@+id/speedGrowthRate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/spd"
+        app:layout_constraintStart_toEndOf="@+id/speedGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/skillGrowthRate" />
+
+    <TextView
+        android:id="@+id/speedGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Speed Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skillGrowthText" />
+
+    <EditText
+        android:id="@+id/luckGrowthRate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/lck"
+        app:layout_constraintStart_toEndOf="@+id/luckGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/speedGrowthRate" />
+
+    <TextView
+        android:id="@+id/luckGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Luck Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speedGrowthText" />
+
+    <EditText
+        android:id="@+id/defGrowthRate"
+        android:layout_width="87dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/def"
+        app:layout_constraintStart_toEndOf="@+id/defGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/luckGrowthRate" />
+
+    <TextView
+        android:id="@+id/defGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="Def Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/luckGrowthText" />
+
+    <EditText
+        android:id="@+id/conGrowthRate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/con"
+        app:layout_constraintStart_toEndOf="@+id/conGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/defGrowthRate" />
+
+    <TextView
+        android:id="@+id/conGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:text="Con Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/defGrowthText" />
+
+    <EditText
+        android:id="@+id/moveGrowthRate"
+        android:layout_width="101dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="@string/mov"
+        app:layout_constraintStart_toEndOf="@+id/moveGrowthText"
+        app:layout_constraintTop_toBottomOf="@+id/conGrowthRate" />
+
+    <TextView
+        android:id="@+id/moveGrowthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Move Growth"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/conGrowthText" />
 
     <TextView
         android:id="@+id/textView2"
@@ -83,12 +237,20 @@
         android:id="@+id/editScrollDeleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="88dp"
         android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toEndOf="@+id/editScrollButton"
-        app:layout_constraintTop_toBottomOf="@+id/magicGrowthRate"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/moveGrowthRate"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <Spinner
+        android:id="@+id/scrollSpinner"
+        android:layout_width="331dp"
+        android:layout_height="51dp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/editScrollLabel" />
 </androidx.constraintlayout.widget.ConstraintLayout>
