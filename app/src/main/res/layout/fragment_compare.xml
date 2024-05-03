@@ -115,7 +115,7 @@
 
     <TextView
         android:id="@+id/averageMag"
-        android:layout_width="85dp"
+        android:layout_width="105dp"
         android:layout_height="22dp"
         android:text="Average Mag: "
         app:layout_constraintEnd_toEndOf="parent"
@@ -173,9 +173,9 @@
 
     <TextView
         android:id="@+id/averageSpeed"
-        android:layout_width="85dp"
-        android:layout_height="22dp"
-        android:text="Average Speed: "
+        android:layout_width="118dp"
+        android:layout_height="23dp"
+        android:text="Average Speed:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/currentSpeed"
         app:layout_constraintTop_toBottomOf="@+id/averageSkill" />
@@ -202,8 +202,8 @@
 
     <TextView
         android:id="@+id/averageLuck"
-        android:layout_width="85dp"
-        android:layout_height="22dp"
+        android:layout_width="114dp"
+        android:layout_height="18dp"
         android:text="Average Luck: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/currentLuck"
@@ -289,9 +289,9 @@
 
     <TextView
         android:id="@+id/averageMove"
-        android:layout_width="85dp"
-        android:layout_height="22dp"
-        android:text="Average Move: "
+        android:layout_width="112dp"
+        android:layout_height="25dp"
+        android:text="Average Move:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/currentMove"
         app:layout_constraintTop_toBottomOf="@+id/averageCon" />
