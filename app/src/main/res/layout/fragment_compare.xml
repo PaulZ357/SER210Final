@@ -322,5 +322,14 @@
         app:layout_constraintStart_toEndOf="@+id/currentMove"
         app:layout_constraintTop_toBottomOf="@+id/averageCon" />
 
+    <EditText
+        android:id="@+id/current_scroll_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="325dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
