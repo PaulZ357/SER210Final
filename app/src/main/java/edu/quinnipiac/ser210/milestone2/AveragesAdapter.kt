@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.data.Scroll
 import edu.quinnipiac.ser210.milestone2.databinding.ListItemBinding
+import kotlin.math.max
 
 class AveragesAdapter(
 	private val character: Character,
@@ -41,7 +42,7 @@ class AveragesAdapter(
 		val lifecycleOwner = parent.findViewTreeLifecycleOwner()!!
 		val averagesViewHolder =
 			AveragesViewHolder(adapterLayout, character, levelsToPromotion, scrolls) {averagesViewHolder: AveragesViewHolder ->
-				val startingIndex = averagesViewHolder.adapterPosition
+				val startingIndex = max(averagesViewHolder.adapterPosition, 1)
 				scrollsByPosition[startingIndex] = averagesViewHolder.activeScrolls.value!!
 				for (index in startingIndex..totalLevels) {
 					val activeScrolls = scrollsByPosition[index]
