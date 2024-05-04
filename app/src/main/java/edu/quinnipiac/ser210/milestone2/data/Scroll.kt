@@ -28,4 +28,8 @@ data class Scroll(
 	val conGrowth: Int = 0,
 	@ColumnInfo(name = "moveGrowth")
 	val moveGrowth: Int = 0
-)
+) {
+	override fun toString(): String {
+		return name
+	}
+}

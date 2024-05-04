@@ -41,6 +41,11 @@ class CalculateAveragesFragment : Fragment() {
 		viewModel.adapter.observe(viewLifecycleOwner) {
 			binding.recyclerView.adapter = it
 		}
+		viewModel.characterIndex.observe(viewLifecycleOwner) {
+			viewModel.characters.observe(viewLifecycleOwner) { characters: List<Character> ->
+				binding.promotionLevelSpinner.isEnabled = characters[it].canPromote
+			}
+		}
 
 		viewModel.levels.observe(viewLifecycleOwner) {
 			binding.promotionLevelSpinner.adapter =

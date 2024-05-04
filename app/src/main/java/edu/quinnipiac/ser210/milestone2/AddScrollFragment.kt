@@ -21,9 +21,9 @@ class AddScrollFragment : Fragment() {
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View? {
+	): View {
 		// Inflate the layout for this fragment
-		val scrollDao = (activity?.application as DataApplication).scrollDatabase.scrollDao()
+		scrollDao = (activity?.application as DataApplication).scrollDatabase.scrollDao()
 		binding = FragmentAddScrollBinding.inflate(layoutInflater)
 
 		scrollDao.getScrolls().asLiveData().observe(viewLifecycleOwner) {
@@ -33,8 +33,6 @@ class AddScrollFragment : Fragment() {
 		binding.addScrollOkButton.setOnClickListener {
 			// ok button
 			Toast.makeText(this.context, "Added scroll ", Toast.LENGTH_SHORT).show()
-			val scrollDao =
-				(activity?.application as DataApplication).scrollDatabase.scrollDao()
 			val scroll = Scroll(
 				nextId,
 				binding.addScrollText.text.toString(),

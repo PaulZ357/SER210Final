@@ -10,10 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
-import edu.quinnipiac.ser210.milestone2.data.Character
+import androidx.lifecycle.lifecycleScope
 import edu.quinnipiac.ser210.milestone2.data.Scroll
 import edu.quinnipiac.ser210.milestone2.data.ScrollDao
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentEditScrollBinding
+import kotlinx.coroutines.launch
 
 
 class EditScrollFragment : Fragment() {
@@ -24,14 +25,14 @@ class EditScrollFragment : Fragment() {
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View? {
+	): View {
 		// Inflate the layout for this fragment
 		inflater.inflate(R.layout.fragment_edit_scroll, container, false)
 		val scrollname = ""
 		scrollDao =
 			(activity?.application as DataApplication).scrollDatabase.scrollDao()
 		binding = FragmentEditScrollBinding.inflate(layoutInflater)
-		scrollIndex.observe(viewLifecycleOwner) {index: Int ->
+		scrollIndex.observe(viewLifecycleOwner) { index: Int ->
 			if (index < DataApplication.defaultScrolls.size) {
 				binding.editScrollDeleteButton.text = "Restore"
 			} else {
@@ -51,40 +52,7 @@ class EditScrollFragment : Fragment() {
 						binding.conGrowthRate.setText(scroll.conGrowth.toString())
 						binding.moveGrowthRate.setText(scroll.moveGrowth.toString())
 
-						/*
-						val character = it[index]
-						binding.name.setText(character.name)
-						binding.currentLevel.setText(character.baseLevel.toString())
-						binding.baseHP.setText(character.baseHP.toString())
-						binding.baseStr.setText(character.baseStr.toString())
-						binding.baseMag.setText(character.baseMag.toString())
-						binding.baseSpeed.setText(character.baseSpd.toString())
-						binding.baseSkill.setText(character.baseSkl.toString())
-						binding.baseLuck.setText(character.baseLck.toString())
-						binding.baseDef.setText(character.baseDef.toString())
-						binding.baseCon.setText(character.baseCon.toString())
-						binding.baseMove.setText(character.baseMov.toString())
-						binding.hpGrowth.setText(character.HPGrowth.toString())
-						binding.strGrowth.setText(character.strGrowth.toString())
-						binding.magGrowth.setText(character.magGrowth.toString())
-						binding.skillGrowth.setText(character.sklGrowth.toString())
-						binding.speedGrowth.setText(character.spdGrowth.toString())
-						binding.luckGrowth.setText(character.lckGrowth.toString())
-						binding.defGrowth.setText(character.defGrowth.toString())
-						binding.conGrowth.setText(character.conGrowth.toString())
-						binding.moveGrowth.setText(character.movGrowth.toString())
-						binding.canPromote.setSelection(if (character.canPromote) 0 else 1)
-						binding.strGain.setText(character.strGain.toString())
-						binding.magGain.setText(character.magGain.toString())
-						binding.skillGain.setText(character.sklGain.toString())
-						binding.speedGain.setText(character.spdGain.toString())
-						binding.defGain.setText(character.defGain.toString())
-						binding.conGain.setText(character.conGain.toString())
-						binding.moveGain.setText(character.movGain.toString())
-
-						canPromote.value = character.canPromote*/
-					}
-					else {
+					} else {
 						scrollIndex.value = scrollIndex.value?.minus(1)
 					}
 				}
@@ -103,11 +71,43 @@ class EditScrollFragment : Fragment() {
 
 		binding.editScrollButton.setOnClickListener {
 			// ok button
-			Toast.makeText(this.context, "Edited scroll " + scrollname, 4).show()
+			lifecycleScope.launch {
+				scrollDao.update(
+					Scroll(
+						scrollIndex.value!!,
+						binding.scrollSpinner.selectedItem as String,
+						binding.hpGrowthRate.text.toString().toInt(),
+						binding.strGrowthRate.text.toString().toInt(),
+						binding.magicGrowthRate.text.toString().toInt(),
+						binding.skillGrowthRate.text.toString().toInt(),
+						binding.speedGrowthRate.text.toString().toInt(),
+						binding.luckGrowthRate.text.toString().toInt(),
+						binding.defGrowthRate.text.toString().toInt(),
+						binding.conGrowthRate.text.toString().toInt(),
+						binding.moveGrowthRate.text.toString().toInt()
+					)
+				)
+			}
 		}
 		binding.editScrollDeleteButton.setOnClickListener {
-			// delete button
-			Toast.makeText(this.context, "Deleted scroll " + scrollname, 4).show()
+			if (scrollIndex.value!! < DataApplication.defaultScrolls.size) {
+				lifecycleScope.launch {
+					scrollDao.update(DataApplication.defaultScrolls[scrollIndex.value!!])
+				}
+			} else {
+				lifecycleScope.launch {
+					var delete = true
+					val characters = scrollDao.getScrolls()
+					characters.collect { data ->
+						// Update the UI with the new data
+						if (delete) {
+							scrollDao.delete(data[scrollIndex.value!!])
+							delete = false
+							scrollIndex.value = data.size - 1
+						}
+					}
+				}
+			}
 		}
 
 		return binding.root

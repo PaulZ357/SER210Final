@@ -16,8 +16,7 @@ import kotlin.math.max
 
 class CalculateAveragesViewModel(
 	private val characterDao: CharacterDao,
-	private val scrollDao: ScrollDao,
-	private val lifecycleOwner: LifecycleOwner
+	private val scrollDao: ScrollDao
 ) : ViewModel() {
 	val characters: LiveData<List<Character>> = characterDao.getCharacters().asLiveData()
 	val characterIndex: LiveData<Int>
@@ -93,7 +92,7 @@ class CalculateAveragesViewModelFactory(
 	override fun <T : ViewModel> create(modelClass: Class<T>): T {
 		if (modelClass.isAssignableFrom(CalculateAveragesViewModel::class.java)) {
 			@Suppress("UNCHECKED_CAST")
-			return CalculateAveragesViewModel(characterDao, scrollDao, lifecycleOwner) as T
+			return CalculateAveragesViewModel(characterDao, scrollDao) as T
 		}
 		throw IllegalArgumentException("Unknown ViewModel class")
 	}
