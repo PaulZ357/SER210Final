@@ -25,11 +25,10 @@ class CompareFragment : Fragment() {
 	lateinit var binding: FragmentCompareBinding
 	private val characterIndex = MutableLiveData(0)
 	lateinit var characterDao: CharacterDao
-	lateinit var scroll: Map<Scroll, Int>
 	private lateinit var scrollDao: ScrollDao
 	private val scrollIndex = MutableLiveData(0)
 	private val scrollSums = MutableLiveData<HashMap<Scroll, Int>>(java.util.HashMap())
-	var level: Int
+	var level: Int = 0
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +38,9 @@ class CompareFragment : Fragment() {
 		// Inflate the layout for this fragment
 		characterDao =
 			(activity?.application as DataApplication).characterDatabase.characterDao()
+		scrollDao =
+			(activity?.application as DataApplication).scrollDatabase.scrollDao()
+		val scrolls: Map<Scroll, Int> = mapOf()
 		binding = FragmentCompareBinding.inflate(layoutInflater)
 
 		characterIndex.observe(viewLifecycleOwner) { index: Int ->
@@ -46,24 +48,16 @@ class CompareFragment : Fragment() {
 				.observe(viewLifecycleOwner) {
 					if (index < it.size) {
 						val character = it[index]
-						binding.averageHP.text = "Average HP: "+character.getAverageHP(level, scroll).toString()
-						binding.averageStr.text = "Average Str: "+character.getAverageStr(level, scroll).toString()
-						binding.averageMag.text = "Average Magic: "+character.getAverageMag(level, scroll).toString()
-						binding.averageSpeed.text = "Average Speed: "+character.getAverageSpd(level, scroll).toString()
-						binding.averageSkill.text = "Average Skill: "+character.getAverageSkl(level, scroll).toString()
-						binding.averageLuck.text = "Average Luck: "+character.getAverageLck(level, scroll).toString()
-						binding.averageDef.text = "Average Def: "+character.getAverageDef(level, scroll).toString()
-						binding.averageCon.text = "Average Con: "+character.getAverageCon(level, scroll).toString()
-						binding.averageMove.text = "Average Move: "+character.getAverageMov(level, scroll).toString()
-						/*binding.currentHP.setText(character.baseHP.toString())
-						binding.currentStr.setText(character.baseStr.toString())
-						binding.currentMag.setText(character.baseMag.toString())
-						binding.currentSpeed.setText(character.baseSpd.toString())
-						binding.currentSkill.setText(character.baseSkl.toString())
-						binding.currentLuck.setText(character.baseLck.toString())
-						binding.currentDef.setText(character.baseDef.toString())
-						binding.currentCon.setText(character.baseCon.toString())
-						binding.currentMove.setText(character.baseMov.toString())*/
+						val promotes = true
+						binding.averageHP.text = "Average HP: "+character.getAverageHP(level, scrolls).toString()
+						binding.averageStr.text = "Average Str: "+character.getAverageStr(level, promotes, scrolls).toString()
+						binding.averageMag.text = "Average Magic: "+character.getAverageMag(level, promotes, scrolls).toString()
+						binding.averageSpeed.text = "Average Speed: "+character.getAverageSpd(level, promotes, scrolls).toString()
+						binding.averageSkill.text = "Average Skill: "+character.getAverageSkl(level, promotes, scrolls).toString()
+						binding.averageLuck.text = "Average Luck: "+character.getAverageLck(level, scrolls).toString()
+						binding.averageDef.text = "Average Def: "+character.getAverageDef(level, promotes, scrolls).toString()
+						binding.averageCon.text = "Average Con: "+character.getAverageCon(level, promotes, scrolls).toString()
+						binding.averageMove.text = "Average Move: "+character.getAverageMov(level, promotes, scrolls).toString()
 					} else {
 						characterIndex.value = characterIndex.value?.minus(1)
 					}
@@ -73,18 +67,8 @@ class CompareFragment : Fragment() {
 			scrollDao.getScrolls().asLiveData()
 				.observe(viewLifecycleOwner) {
 					if (index < it.size) {
-						// WIL N
-						/*binding.currentHP.setText(character.baseHP.toString())
-						binding.currentStr.setText(character.baseStr.toString())
-						binding.currentMag.setText(character.baseMag.toString())
-						binding.currentSpeed.setText(character.baseSpd.toString())
-						binding.currentSkill.setText(character.baseSkl.toString())
-						binding.currentLuck.setText(character.baseLck.toString())
-						binding.currentDef.setText(character.baseDef.toString())
-						binding.currentCon.setText(character.baseCon.toString())
-						binding.currentMove.setText(character.baseMov.toString())*/
 					} else {
-						characterIndex.value = characterIndex.value?.minus(1)
+						scrollIndex.value = scrollIndex.value?.minus(1)
 					}
 				}
 		}
@@ -152,7 +136,8 @@ class CompareFragment : Fragment() {
 		}
 
 		override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-			scrollSums.value!![spinnerScroll.selectedItem as Scroll] = s.toString().toInt()
+			// this code gave me an error
+		// scrollSums.value!![spinnerScroll.selectedItem as Scroll] = s.toString().toInt()
 		}
 
 		override fun afterTextChanged(s: Editable?) {
