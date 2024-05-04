@@ -14,6 +14,8 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import edu.quinnipiac.ser210.milestone2.data.Character
 import edu.quinnipiac.ser210.milestone2.data.CharacterDao
+import edu.quinnipiac.ser210.milestone2.data.Scroll
+import edu.quinnipiac.ser210.milestone2.data.ScrollDao
 import edu.quinnipiac.ser210.milestone2.databinding.FragmentCompareBinding
 import kotlinx.coroutines.launch
 
@@ -22,6 +24,10 @@ class CompareFragment : Fragment() {
 	lateinit var binding: FragmentCompareBinding
 	private val characterIndex = MutableLiveData(0)
 	lateinit var characterDao: CharacterDao
+	lateinit var scroll: Map<Scroll, Int>
+	private lateinit var scrollDao: ScrollDao
+	private val scrollIndex = MutableLiveData(0)
+	var level: Int
     override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
@@ -32,30 +38,21 @@ class CompareFragment : Fragment() {
 			(activity?.application as DataApplication).characterDatabase.characterDao()
 		binding = FragmentCompareBinding.inflate(layoutInflater)
 
-		/*lifecycleScope.launch {
-			// looks for the
-			val _CHARACTER = binding.spinner.selectedItemId.toInt()
-			val character = characterDao.getCharacter(_CHARACTER)
-			character.collect { data ->
-				// Update the UI with the new data
-				binding.compareCharHP.text = data.baseHP.toString()
-				binding.compareCharStr.text = data.baseStr.toString()
-				binding.compareCharMag.text = data.baseMag.toString()
-				binding.compareCharSkill.text = data.baseSkl.toString()
-				binding.compareCharSpeed.text = data.baseSpd.toString()
-				binding.compareCharLuck.text = data.baseLck.toString()
-				binding.compareCharDef.text = data.baseDef.toString()
-				binding.compareCharCon.text = data.baseCon.toString()
-				binding.compareCharHP.text = data.HPGrowth.toString()
-				binding.compareCharStr.text = data.strGrowth.toString()
-			}
-		}*/
 		characterIndex.observe(viewLifecycleOwner) {index: Int ->
 			characterDao.getCharacters().asLiveData()
 				.observe(viewLifecycleOwner) {
 					if (index < it.size) {
 						val character = it[index]
-						binding.currentHP.setText(character.baseHP.toString())
+						binding.averageHP.text = "Average HP: "+character.getAverageHP(level, scroll).toString()
+						binding.averageStr.text = "Average Str: "+character.getAverageStr(level, scroll).toString()
+						binding.averageMag.text = "Average Magic: "+character.getAverageMag(level, scroll).toString()
+						binding.averageSpeed.text = "Average Speed: "+character.getAverageSpd(level, scroll).toString()
+						binding.averageSkill.text = "Average Skill: "+character.getAverageSkl(level, scroll).toString()
+						binding.averageLuck.text = "Average Luck: "+character.getAverageLck(level, scroll).toString()
+						binding.averageDef.text = "Average Def: "+character.getAverageDef(level, scroll).toString()
+						binding.averageCon.text = "Average Con: "+character.getAverageCon(level, scroll).toString()
+						binding.averageMove.text = "Average Move: "+character.getAverageMov(level, scroll).toString()
+						/*binding.currentHP.setText(character.baseHP.toString())
 						binding.currentStr.setText(character.baseStr.toString())
 						binding.currentMag.setText(character.baseMag.toString())
 						binding.currentSpeed.setText(character.baseSpd.toString())
@@ -63,7 +60,27 @@ class CompareFragment : Fragment() {
 						binding.currentLuck.setText(character.baseLck.toString())
 						binding.currentDef.setText(character.baseDef.toString())
 						binding.currentCon.setText(character.baseCon.toString())
-						binding.currentMove.setText(character.baseMov.toString())
+						binding.currentMove.setText(character.baseMov.toString())*/
+					}
+					else {
+						characterIndex.value = characterIndex.value?.minus(1)
+					}
+				}
+		}
+		scrollIndex.observe(viewLifecycleOwner) {index: Int ->
+			scrollDao.getScrolls().asLiveData()
+				.observe(viewLifecycleOwner) {
+					if (index < it.size) {
+						// WIL N
+						/*binding.currentHP.setText(character.baseHP.toString())
+						binding.currentStr.setText(character.baseStr.toString())
+						binding.currentMag.setText(character.baseMag.toString())
+						binding.currentSpeed.setText(character.baseSpd.toString())
+						binding.currentSkill.setText(character.baseSkl.toString())
+						binding.currentLuck.setText(character.baseLck.toString())
+						binding.currentDef.setText(character.baseDef.toString())
+						binding.currentCon.setText(character.baseCon.toString())
+						binding.currentMove.setText(character.baseMov.toString())*/
 					}
 					else {
 						characterIndex.value = characterIndex.value?.minus(1)
@@ -77,6 +94,14 @@ class CompareFragment : Fragment() {
 					requireContext(),
 					R.layout.simple_spinner_item,
 					Array(characters.size) { characters[it].name }
+				)
+			}
+		scrollDao.getScrolls().asLiveData()
+			.observe(viewLifecycleOwner) { scrolls: List<Scroll> ->
+				binding.spinnerScroll.adapter = ArrayAdapter(
+					requireContext(),
+					android.R.layout.simple_spinner_item,
+					Array(scrolls.size) { scrolls[it].name }
 				)
 			}
 
